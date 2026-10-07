@@ -1,36 +1,40 @@
 # Interactive Weather & Forecast Dashboard
 
-A responsive weather dashboard built using HTML5, CSS3, and Vanilla JavaScript.
+A responsive weather dashboard built with HTML5, CSS3, and Vanilla JavaScript.
+Search any city to see its current conditions and a 5-day forecast.
 
-## Status
+## Features
 
-🚧 Project setup complete — implementation coming later.
+- Search by city/location (Search button or Enter key)
+- Current weather: city, date, temperature, condition, icon, feels-like, humidity, wind speed
+- Dynamically generated 5-day forecast cards (day, min/max temp, condition, icon)
+- Loading indicator while requests are running
+- Friendly error handling for empty input, unknown cities, API and network failures
+- Responsive layout from ~375px mobile up to 1200px+ desktop
+- Accessible, semantic markup with labels and ARIA attributes
+- Clean initial empty state (no request on page load)
 
-## Planned Features
-
-- Search weather by city/location
-- Current weather overview
-- Temperature and weather condition
-- Humidity, wind speed, and feels-like temperature
-- 5-day weather forecast
-- Loading state
-- Error handling
-- Responsive design
-
-## Optional Features
-
-- Dynamic weather-based themes
-- Celsius / Fahrenheit switching
-- Recent searches using localStorage
-- Geolocation support
-- Micro-interactions and animations
-
-## Tech Stack
+## Technologies Used
 
 - HTML5
-- CSS3
-- Vanilla JavaScript (ES6+)
-- Open-Meteo API
+- CSS3 (Grid, Flexbox, CSS variables, media queries)
+- Vanilla JavaScript (ES6+, Fetch API, async/await)
+
+## API Used
+
+Open-Meteo (no API key required):
+
+- Geocoding API — converts a city name into latitude/longitude
+- Forecast API — returns current weather and daily forecast data
+
+The API timezone is requested so dates display correctly for the searched location.
+
+## How to Run
+
+1. Clone or download the repository.
+2. Open `index.html` in any modern browser.
+
+No build step and no dependencies are required.
 
 ## Project Structure
 
@@ -47,17 +51,3 @@ weather-dashboard/
     ├── icons/
     └── images/
 ```
-
-## Getting Started
-
-Clone the repository and open `index.html` in a browser.
-
-No external JavaScript frameworks or UI libraries are planned for this project.
-
-## API
-
-The project is planned to use the Open-Meteo API for geocoding and weather forecast data.
-
-## Assignment
-
-This project is based on the Interactive Weather & Forecast Dashboard assignment.

@@ -9,13 +9,87 @@
 </head>
 <body>
 
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
+    <div class="app">
+        <header class="app-header">
+            <h1 class="app-title">Weather Dashboard</h1>
+            <p class="app-subtitle">Search any city to see current conditions and a 5-day forecast.</p>
+        </header>
 
-    <main>
-        <!-- Weather dashboard will be built here -->
-    </main>
+        <!-- Search form: works with the button click and with the Enter key -->
+        <form class="search" id="search-form" role="search">
+            <label class="search__label" for="city-input">City or location</label>
+            <div class="search__row">
+                <input
+                    class="search__input"
+                    id="city-input"
+                    type="text"
+                    name="city"
+                    placeholder="e.g. London, Tokyo, New York"
+                    autocomplete="off"
+                    aria-describedby="search-hint"
+                >
+                <button class="search__button" id="search-button" type="submit">Search</button>
+            </div>
+            <p class="search__hint" id="search-hint">Press Enter or click Search.</p>
+        </form>
+
+        <main class="dashboard" id="dashboard" aria-live="polite" aria-busy="false">
+
+            <!-- Empty state shown before the first search -->
+            <section class="empty-state" id="empty-state">
+                <div class="empty-state__icon" aria-hidden="true">&#127780;&#65039;</div>
+                <h2 class="empty-state__title">No location selected</h2>
+                <p class="empty-state__text">Search for a city above to see its weather.</p>
+            </section>
+
+            <!-- Loading indicator, hidden by default -->
+            <section class="loading" id="loading" hidden>
+                <div class="spinner" aria-hidden="true"></div>
+                <p class="loading__text">Fetching weather data&hellip;</p>
+            </section>
+
+            <!-- Error message, hidden by default -->
+            <section class="error" id="error" role="alert" hidden>
+                <span class="error__icon" aria-hidden="true">&#9888;&#65039;</span>
+                <p class="error__text" id="error-text">Something went wrong.</p>
+            </section>
+
+            <!-- Current weather, hidden by default -->
+            <section class="current" id="current" hidden aria-label="Current weather">
+                <div class="current__main">
+                    <p class="current__city" id="current-city">&mdash;</p>
+                    <p class="current__date" id="current-date">&mdash;</p>
+                    <div class="current__temp-row">
+                        <span class="current__icon" id="current-icon" aria-hidden="true">&#9728;&#65039;</span>
+                        <span class="current__temp" id="current-temp">&mdash;</span>
+                    </div>
+                    <p class="current__condition" id="current-condition">&mdash;</p>
+                </div>
+
+                <dl class="current__details">
+                    <div class="detail">
+                        <dt class="detail__label">Feels like</dt>
+                        <dd class="detail__value" id="current-feels">&mdash;</dd>
+                    </div>
+                    <div class="detail">
+                        <dt class="detail__label">Humidity</dt>
+                        <dd class="detail__value" id="current-humidity">&mdash;</dd>
+                    </div>
+                    <div class="detail">
+                        <dt class="detail__label">Wind</dt>
+                        <dd class="detail__value" id="current-wind">&mdash;</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <!-- 5-day forecast cards are generated dynamically by app.js -->
+            <section class="forecast" id="forecast" hidden aria-label="5-day forecast">
+                <h2 class="forecast__title">5-Day Forecast</h2>
+                <div class="forecast__grid" id="forecast-grid"></div>
+            </section>
+
+        </main>
+    </div>
 
     <script src="app.js"></script>
 </body>
